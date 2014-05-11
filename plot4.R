@@ -11,10 +11,14 @@ original_data$Time <- chron(times = original_data$Time)
 
 ### Subset the data only using data from the dates 207-02-01 and 2007-02-02.
 use <- grep("2007-02-01|2007-02-02", original_data$Date)
+
 data <- original_data[use,]
 
 
 ## Plot 4
+### Open screen
+windows(480, 480)
+
 ### Create plotting frame
 par(mfcol = c(2,2), mar = c(4, 4, 4, 4))
 
@@ -22,7 +26,7 @@ par(mfcol = c(2,2), mar = c(4, 4, 4, 4))
 data$Global_active_power <- as.numeric(levels(data$Global_active_power)) [data$Global_active_power]
 
 plot(data$Global_active_power, type = "l", frame.plot = TRUE,
-     xlab = "", ylab = "Global Active Power (kilowatts)",
+     xlab = "", ylab = "Global Active Power",
      axes = FALSE)
 axis(side = 1, at = c(0, 1440, 2880), labels = c("Thu", "Fri", "Sat"))
 axis(side = 2, at = c(0, 2, 4, 6))
