@@ -20,7 +20,7 @@ data <- original_data[use,]
 png(filename = "Plot4.png", 480, 480)
 
 ### Create plotting frame
-par(mfcol = c(2,2), mar = c(4, 4, 4, 4))
+par(mfcol = c(2,2), mar = c(4, 4, 2, 2))
 
 ### Plot "topleft"
 data$Global_active_power <- as.numeric(levels(data$Global_active_power)) [data$Global_active_power]
@@ -44,7 +44,7 @@ lines(data$Sub_metering_2, type = "l", col = 34)
 lines(data$Sub_metering_3, type = "l", col = 28)
 legend("topright", border = NULL, lty = 1, col = c("black", "red", "blue"),
        legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
-       bty = "n", adj =c(0, 0.5))
+       bty = "n", )
 
 ### Plot "topright"
 data$Voltage <- as.numeric(levels(data$Voltage)) [data$Voltage]
