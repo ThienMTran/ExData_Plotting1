@@ -14,6 +14,9 @@ use <- grep("2007-02-01|2007-02-02", original_data$Date)
 data <- original_data[use,]
 
 ## Plot 1
+### Open screen
+png(filename = "Plot1.png", 480, 480)
+
 ### Making Plot 1: Histogram of Global Active Power
 data$Global_active_power <- as.numeric(levels(data$Global_active_power)) [data$Global_active_power]
 
@@ -21,5 +24,4 @@ hist(data$Global_active_power, breaks = 12, col = 34,
      main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
 
 ### Copy to PNG file
-dev.copy(png, file = "plot1.png", width = 480, height = 480)
 dev.off()

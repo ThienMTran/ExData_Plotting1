@@ -14,6 +14,9 @@ use <- grep("2007-02-01|2007-02-02", original_data$Date)
 data <- original_data[use,]
 
 ## Plot 2
+### Open screen
+png(filename = "Plot2.png", 480, 480)
+
 ### Making Plot 2: Global Active Power on Thu, Fri
 data$Global_active_power <- as.numeric(levels(data$Global_active_power)) [data$Global_active_power]
 
@@ -24,5 +27,4 @@ axis(side = 1, at = c(0, 1440, 2880), labels = c("Thu", "Fri", "Sat"))
 axis(side = 2, at = c(0, 2, 4, 6))
 
 ### Copy to PNG file
-dev.copy(png, file = "plot2.png", width = 480, height = 480)
 dev.off()

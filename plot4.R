@@ -17,7 +17,7 @@ data <- original_data[use,]
 
 ## Plot 4
 ### Open screen
-windows(480, 480)
+png(filename = "Plot4.png", 480, 480)
 
 ### Create plotting frame
 par(mfcol = c(2,2), mar = c(4, 4, 4, 4))
@@ -42,8 +42,9 @@ axis(side = 1, at = c(0, 1440, 2880), labels = c("Thu", "Fri", "Sat"))
 axis(side = 2, at = c(0, 10, 20, 30))
 lines(data$Sub_metering_2, type = "l", col = 34)
 lines(data$Sub_metering_3, type = "l", col = 28)
-legend("topright", lty = 1, col = c("black", "red", "blue"),
-       legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+legend("topright", border = NULL, lty = 1, col = c("black", "red", "blue"),
+       legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
+       bty = "n", adj =c(0, 0.5))
 
 ### Plot "topright"
 data$Voltage <- as.numeric(levels(data$Voltage)) [data$Voltage]
@@ -63,6 +64,5 @@ plot(data$Global_reactive_power, type = "l", frame.plot = TRUE,
 axis(side = 1, at = c(0, 1440, 2880), labels = c("Thu", "Fri", "Sat"))
 axis(side = 2, at = c(0.0, 0.1, 0.2, 0.3, 0.4, 0.5))
 
-## Copy to PNG file
-dev.copy(png, file = "plot4.png", width = 480, height = 480)
+### Device off
 dev.off()

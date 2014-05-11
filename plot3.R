@@ -14,6 +14,9 @@ use <- grep("2007-02-01|2007-02-02", original_data$Date)
 data <- original_data[use,]
 
 ## Plot 3
+### Open screen
+png(filename = "Plot3.png", 480, 480)
+
 ### Making Plot 3 
 data$Sub_metering_1 <- as.numeric(levels(data$Sub_metering_1)) [data$Sub_metering_1]
 data$Sub_metering_2 <- as.numeric(levels(data$Sub_metering_2)) [data$Sub_metering_2]
@@ -29,5 +32,4 @@ legend("topright", lty = 1, col = c("black", "red", "blue"),
        legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
 ### Copy to PNG file
-dev.copy(png, file = "plot3.png", width = 480, height = 480)
 dev.off()
